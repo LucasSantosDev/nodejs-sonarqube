@@ -1,0 +1,33 @@
+{
+  "name": "nodejs-sonarqube",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "test:endpoint": "jest --coverage",
+    "sonar": "nodemon sonar-project.js"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "testResultsProcessor": "jest-sonar-reporter"
+  },
+  "jestSonar": {
+    "reportPath": "coverage",
+    "reportFile": "test-reporter.xml",
+    "indent": 4
+  },
+  "devDependencies": {
+    "jest": "^29.2.1",
+    "jest-sonar-reporter": "^2.0.0",
+    "nodemon": "^2.0.20",
+    "sonarqube-scanner": "^2.8.2",
+    "supertest": "^6.3.0"
+  }
+}
